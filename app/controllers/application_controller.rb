@@ -20,6 +20,12 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/account' do
+    if !session[:user_id]
+      erb :error
+    else
+      @user = Helpers.current_user(session)
+      erb :account
+    end
 
   end
 
