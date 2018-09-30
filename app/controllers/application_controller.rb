@@ -26,11 +26,11 @@ class ApplicationController < Sinatra::Base
       @user = Helpers.current_user(session)
       erb :account
     end
-
   end
 
   get '/logout' do
-
+  session.clear
+    redirect '/'
   end
 
 
